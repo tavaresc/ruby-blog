@@ -12,12 +12,14 @@ sorted = counts.sort_by {|word, count| count}
 top_five = sorted.last(5)
 
 # write output
-for i in 0...5
-	word = top_five[i][0]
-	count = top_five[i][1]
-	puts "#{word}: #{count}"
-end
+puts "With map: \n"
+result_map = top_five.map { |word, count| puts "#{word}: #{count}" }
+p result_map
 
-top_five.each do |word, count|
-	puts "#{word}: #{count}"
-end
+puts "\nWith each:\n"
+result_each = top_five.each { |word, count| puts "#{word}: #{count}" }
+p result_each
+
+puts "\nWith collect:\n"
+result_collect = top_five.collect { |word, count| puts "#{word}: #{count}" }
+p result_collect
